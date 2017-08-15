@@ -1,6 +1,5 @@
 package insertProducts.business;
 
-import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;

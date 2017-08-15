@@ -19,6 +19,10 @@ import utility.DataBase;
  *
  */
 public class initUI  extends JFrame implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8101074979398636682L;
 	private JTextField DataBaseUrlText =null;
 	private JTextField userText = null;
 	private JPasswordField passwordText = null;
@@ -31,8 +35,7 @@ public class initUI  extends JFrame implements ActionListener{
 	  * 窗口布局
 	  * @param panel
 	  */
-    @SuppressWarnings("unused")
-	public void placeComponents(JPanel panel) {
+    public void placeComponents(JPanel panel) {
         panel.setLayout(null);
         
         //数据库连接输入框
@@ -97,10 +100,9 @@ public class initUI  extends JFrame implements ActionListener{
                  try {
                 	 DataBase.connactDB(databaseURL, dbUser, dbpwd);
                 	 Logtext.append("已连接数据库\n");
-                	 insertProduct p = new insertProduct();
                 	 Logtext.append("准备造数据\n");
                 	 long start = System.currentTimeMillis();
-                	 p.batchInsertProduct(total);
+                	 insertProduct.batchInsertProduct(total);
                 	 long time = System.currentTimeMillis()-start;
                 	 Logtext.append("已完成\n"+"总共耗时："+time+" 毫秒");
                 	 
@@ -112,13 +114,6 @@ public class initUI  extends JFrame implements ActionListener{
         });
     }
 
-    /**
-     * 处理鼠标点击事件
-     * 点击begin按钮的时候获取输入框信息
-     * 并且连接数据库
-     */
-    
-    
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
